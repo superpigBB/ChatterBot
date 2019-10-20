@@ -20,6 +20,10 @@ trainer.train(
     'chatterbot.corpus.english'
 )
 
+# trainer.train(
+#     'chatterbot.corpus.chinese'
+# )
+
 # Now let's get a response to a greeting
 response = chatbot.get_response('How are you doing today?')
 print(response)

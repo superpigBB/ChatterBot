@@ -53,7 +53,7 @@ def validate_adapter_class(validate_class, adapter_class):
 
         if 'import_path' not in validate_class:
             raise Adapter.InvalidAdapterTypeException(
-                'The dictionary {} must contain a value for "import_path"'.format(
+                'The dictionary  {} must contain a value for "import_path"'.format(
                     str(validate_class)
                 )
             )

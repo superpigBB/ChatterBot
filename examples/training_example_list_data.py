@@ -29,5 +29,5 @@ trainer.train([
 ])
 
 # Now let's get a response to a greeting
-response = chatbot.get_response('How are you doing today?')
+response = chatbot.get_response('hello,      how is the day')
 print(response)
