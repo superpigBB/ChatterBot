@@ -99,6 +99,7 @@ net = tflearn.regression(net)
 
 model = tflearn.DNN(net)
 
+
 # Model Training and to be saved or reloaded
 try:
     model.load("model.tflearn")
@@ -133,7 +134,7 @@ def chat():
         tag = labels[results_index]
         print(f'results: {results} \nresults_index: {results_index} \ntag: {tag} \nprob: {results[results_index] * 100}')
 
-        if results[results_index] > 0.7:
+        if results[results_index] >= 0.7:
             for tg in data["intents"]:
                 if tg['tag'] == tag:
                     responses = tg['responses']
