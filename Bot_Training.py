@@ -139,6 +139,7 @@ predict_test("I want to download DUDL Data")
 predict_test("Show me dudl data")
 predict_test("I want DUDL reports")
 predict_test("definition of DUDL")
+predict_test("Hi Captain")
 
 
 

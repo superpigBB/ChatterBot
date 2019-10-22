@@ -2,7 +2,7 @@ SELECT * FROM test.training_bot where training_id = 1;
 #order by training_id;
 DELETE FROM training_bot;
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'DUDL related dashboards', 'Here is the DUDL and its related dashboards for your analysis');
-INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'show me DUDL Viz', 'Here is the DUDL and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'DUDL Viz', 'Here is the DUDL and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'DUDL related charts and dashboards', 'Here is the DUDL and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'DUDL Reports', 'Here is the DUDL and its related dashboards for your analysis');
 
@@ -44,7 +44,7 @@ INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Trident Dashboar
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Trident viz visualization', 'Here is the Trident and its related dashboards for your analysis');
 
 INSERT INTO training_bot(tag, pattern, response) VALUES('DOWNLOAD', 'dudl data download', 'Download DUDL Raw Data');
-INSERT INTO training_bot(tag, pattern, response) VALUES('DOWNLOAD', 'download dudl table', 'Download DUDL Raw Data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('DOWNLOAD', 'downltraining_tableoad dudl table', 'Download DUDL Raw Data');
 INSERT INTO training_bot(tag, pattern, response) VALUES('DOWNLOAD', 'get dudl data', 'Download DUDL Raw Data');
 
 INSERT INTO training_bot(tag, pattern, response) VALUES('DOWNLOAD', 'get customer ars data', 'Download External Customer ARs Raw Data');
@@ -92,8 +92,8 @@ INSERT INTO training_bot(tag, pattern, response) VALUES('VIEWONLINE', 'view FEAP
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIEWONLINE', 'quick view of FEAP data look like', 'View Top 50 FEAP data');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIEWONLINE', 'How does FEAP look like', 'View Top 50 FEAP data');
 
-INSERT INTO training_bot(tag, pattern, response) VALUES('GREETING', 'Hello', 'Howdy! My name is Captain Pi, I am a AI Data Py-ilot Created by Vicky and TY');
-INSERT INTO training_bot(tag, pattern, response) VALUES('GREETING', 'Hi', 'Howdy! My name is Captain Pi, I am a AI Data Py-ilot Created by Vicky and TY');
+INSERT INTO training_bot(tag, pattern, response) VALUES('GREETING', 'Hello, Hi', 'Howdy! My name is Captain Pi, I am a AI Data Py-ilot Created by Vicky and TY');
+INSERT INTO training_bot(tag, pattern, response) VALUES('GREETING', 'Hi, Captain', 'Howdy! My name is Captain Pi, I am a AI Data Py-ilot Created by Vicky and TY');
 
 INSERT INTO training_bot(tag, pattern, response) VALUES('AGE', 'How old are you', 'I\'m only 2 days\'s old');
 INSERT INTO training_bot(tag, pattern, response) VALUES('AGE', 'What\'s your age', 'I\'m only 2 days\'s old');
@@ -108,6 +108,14 @@ INSERT INTO training_bot(tag, pattern, response) VALUES('Training', 'What\'s DL'
 INSERT INTO training_bot(tag, pattern, response) VALUES('Training', 'What\'s SafeLaunch', 'SafeLaunch is a process which comes after Safe Launch that creates internal mitigations to resolove in market product issues');
 INSERT INTO training_bot(tag, pattern, response) VALUES('Training', 'What\'s FEAP', 'fEAP is Field Escape Analtsis Process. A post GA issue mitigation process designed to examine incoming Customer tickets and determine how that issue excape our internal testing and wound up being hit by a customer');
 INSERT INTO training_bot(tag, pattern, response) VALUES('Training', 'What\'s useful fields to analyize Installs', 'family and code_version1_derived');
+INSERT INTO training_bot(tag, pattern, response) VALUES('Training', 'Definition of SafeLaunch', 'SafeLaunch is a process which comes after Safe Launch that creates internal mitigations to resolove in market product issues');
+INSERT INTO training_bot(tag, pattern, response) VALUES('Training', 'Definition of  FEAP', 'FEAP is Field Escape Analtsis Process. A post GA issue mitigation process designed to examine incoming Customer tickets and determine how that issue excape our internal testing and wound up being hit by a customer');
+INSERT INTO training_bot(tag, pattern, response) VALUES('Training', 'Defintion of DUDL', 'DUDL table contains additinal information around SW Fixed in Data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('Training', 'How to define DUDL', 'DUDL table contains additinal information around SW Fixed in Data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('Training', 'How to Define FEAP', 'FEAP is Field Escape Analtsis Process. A post GA issue mitigation process designed to examine incoming Customer tickets and determine how that issue excape our internal testing and wound up being hit by a customer');
+INSERT INTO training_bot(tag, pattern, response) VALUES('Training', 'what\'s the defintion of SafeLaunch', 'SafeLaunch is a process which comes after Safe Launch that creates internal mitigations to resolove in market product issues');
+
+
 
 INSERT INTO training_bot(tag, pattern, response) VALUES('ADHOC', 'Last 3 month\'s DUDL data', 'DUDL Data for the last 3 months');
 INSERT INTO training_bot(tag, pattern, response) VALUES('ADHOC', 'Last 2 month\'s Customer ARs', 'Customer ARs for the last 2 months');
