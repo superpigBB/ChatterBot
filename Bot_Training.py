@@ -5,7 +5,7 @@ Created By: Vicky Bao
 import tensorflow as tf
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
-from tensorflow.keras.layers import Embedding, LSTM, Dense, Bidirectional
+from tensorflow.keras.layers import Embedding, LSTM, Dense, Bidirectional, GRU
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.optimizers import Adam
 import numpy as np
@@ -43,7 +43,7 @@ connection.close()
 
 # Tokenization on texts
 oov_tok = "<OOV>"
-tokenizer = Tokenizer()
+tokenizer = Tokenizer(num_words=150)
 
 tokenizer.fit_on_texts(input_corpus)
 print(f"input word index: {tokenizer.word_index}")
@@ -54,23 +54,24 @@ print(f"total words: {tokenizer.word_index}"
 
 
 # Sequence all texts
-input_sequences = []        # Input
-for line in input_corpus:
-    token_list = tokenizer.texts_to_sequences([line])[0]
-    input_sequences.append(token_list)
+input_sequences = tokenizer.texts_to_sequences(input_corpus)
+# input_sequences = []        # Input
+# for line in input_corpus:
+#     token_list = tokenizer.texts_to_sequences([line])[0]
+#     input_sequences.append(token_list)
 
 # max sequence length of the input
 max_sequence_len = max(len(x) for x in input_sequences)
 
 print(f"input_sequences:{input_sequences}\nmax_sequence_len: {max_sequence_len}")
 
-
-label_sequences = []    # Label
-for line in label_corpus:
-    if line == '':
-        continue
-    token_list = tokenizer.texts_to_sequences([line])[0]
-    label_sequences.append(token_list)
+label_sequences = tokenizer.texts_to_sequences(label_corpus)
+# label_sequences = []    # Label
+# for line in label_corpus:
+#     if line == '':
+#         continue
+#     token_list = tokenizer.texts_to_sequences([line])[0]
+#     label_sequences.append(token_list)
 
 label_max_sequence_len = max([len(x) for x in label_sequences])
 print(f"label_sequences:{label_sequences}\nlabel_max_sequence_len: {label_max_sequence_len}")
@@ -89,13 +90,14 @@ print(f"ys: \n{ys }")
 
 model = Sequential()
 model.add(Embedding(total_words, 64, input_length=max_sequence_len))
-# model.add(Bidirectional(LSTM(20)))  # LSTM(150)
-model.add(LSTM(20))
+# model.add(Bidirectional(LSTM(20)))  # LSTM(150) # GRU(32)
+# model.add(Dense(total_words, activation='relu'))
+model.add(LSTM(total_words ))
 model.add(Dense(total_words, activation='softmax'))
 adam = Adam(lr=0.01)  # learning rate
 model.compile(loss='categorical_crossentropy', optimizer=adam,  metrics=['accuracy'])
 history = model.fit(xs, ys, epochs=500, verbose=1)
-
+model.summary()
 # Plot Accuracy and loss
 import matplotlib.pyplot as plt
 
