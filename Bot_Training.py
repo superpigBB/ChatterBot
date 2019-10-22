@@ -112,62 +112,119 @@ def plot_graphs(history, string):
 plot_graphs(history, 'accuracy')
 
 dict = dict([(value, key) for (key, value) in tokenizer.word_index.items()])
+
+
 # prediction
 def predict_test(seed_text):
     token_list = tokenizer.texts_to_sequences([seed_text])[0]
     token_list = pad_sequences([token_list], maxlen=max_sequence_len, padding='post')
     predicted = model.predict_classes(token_list, verbose=0)
     prob = model.predict_proba(token_list)
-    print(f"predicted: {predicted}")
-    print(f"prob: {prob}")
+    # print(f"predicted: {predicted}")
+    # print(f"prob: {prob}")
     max_index = np.argmax(prob)
     top_3_index = (-prob).argsort()[0][:3] #[-3:][::-1]
     print(f"max index of prob is {np.argmax(prob)}")
     print(f"top 3 index of prob is {top_3_index}")
-    for i in top_3_index:
-        print(f"top3 index is {i} -> {prob[0][i] * 100}%")
+    # for i in top_4_index:
+    #     print(f"top4 index is {i} -> {prob[0][i] * 100}%")
     max_prob = prob[0][max_index] * 100
     print(f"word index: \n{tokenizer.word_index}")
-
-    tag = dict[predicted[0]]
-    print(f"tag: {tag}")
+    tags = [dict[i] for i in top_3_index]
+    # tag = dict[predicted[0]]
+    responses = []  # responses to be returned
+    for tag in tags:
+        if tag in ['greeting', 'age', 'goodbye']:
+            responses.append(response_dict[tag])
+        else:
+            responses = tag_response(seed_text, tag, responses)
+    print(f"tags: {tags}")
     print(f"max prob for tag {tag}: {max_prob}%")
-    responses = response_dict[tag]
+    # responses = response_dict[tag]
     print(f"responses: {responses}")
 
-predict_test("I want to download DUDL Data")
-predict_test("Show me dudl data")
-predict_test("I want DUDL reports")
-predict_test("definition of DUDL")
-predict_test("Hi Captain")
+import re
+def tag_response(seed_text, tag, responses):
+    responses_set = response_dict[tag]
+    for response in responses_set:
+        # print(f"response: {response}")
+        if re.search('DUDL', seed_text, flags=re.I) and re.search('DUDL', response, flags=re.I):
+            responses.append(response)
+            return responses
+        elif re.search('Install', seed_text, flags=re.I) and re.search('Install', response, flags=re.I):
+            responses.append(response)
+            return responses
+        elif re.search('escape analysis|FEAP', seed_text, flags=re.I) and re.search('escape analysis|FEAP', response, flags=re.I):
+            responses.append(response)
+            return responses
+        elif re.search('Jira|Pre-GA Jira', seed_text, flags=re.I) and re.search('Jira|Pre-GA Jira', response, flags=re.I):
+            responses.append(response)
+            return responses
+        elif re.search('ARTS', seed_text, flags=re.I) and re.search('ARTS', response, flags=re.I):
+            responses.append(response)
+            return responses
+        elif re.search('Customer ARs|external ARs|ars|remedy', seed_text, flags=re.I) and re.search('Customer ARs|external ARs|ars|remedy', response, flags=re.I):
+            responses.append(response)
+            return responses
+        elif re.search('safelaunch', seed_text, flags=re.I) and re.search('safelaunch', response, flags=re.I):
+            responses.append(response)
+            return responses
+        elif re.search('Trident', seed_text, flags=re.I) and re.search('Trident', response, flags=re.I):
+            responses.append(response)
+            return responses
+        elif re.search('powermax', seed_text, flags=re.I) and re.search('powermax', response, flags=re.I):
+            responses.append(response)
+            return responses
+        elif re.search('DU', seed_text, flags=re.I) and re.search('DU', response, flags=re.I):
+            responses.append(response)
+            return responses
+        elif re.search('DL', seed_text, flags=re.I) and re.search('DL', response, flags=re.I):
+            responses.append(response)
+            return responses
+        elif re.search('SR', seed_text, flags=re.I) and re.search('SR', response, flags=re.I):
+            responses.append(response)
+            return responses
 
 
 
-# Load into Tensorflow model for visualization
-e = model.layers[0]
-weights = e.get_weights()[0]
-print(weights.shape)  # shape: (vocab_size, embedding_dim)
-(vocab_size, embedding_dim) = weights.shape
 
-import io
 
-out_v = io.open('vecs.tsv', 'w', encoding='utf-8')
-out_m = io.open('meta.tsv', 'w', encoding='utf-8')
-for word_num in range(1, vocab_size):
-    word = dict[word_num]
-    embeddings = weights[word_num]
-    out_m.write(word + "\n")
-    out_v.write('\t'.join([str(x) for x in embeddings]) + '\n')
-out_v.close()
-out_m.close()
+# predict_test("I want to download DUDL Data")
+# predict_test("Show me dudl data")
+# predict_test("I want DUDL reports")
+# predict_test("definition of DUDL")
+# predict_test("Hi Captain Pi")
+# predict_test("Bye Captain Pi")
 
-try:
-    from google.colab import files
-except ImportError:
-    pass
-else:
-    files.download('vecs.tsv')
-    files.download('meta.tsv')
+predict_test("Hi")
+
+
+
+# # Load into Tensorflow model for visualization
+# e = model.layers[0]
+# weights = e.get_weights()[0]
+# print(weights.shape)  # shape: (vocab_size, embedding_dim)
+# (vocab_size, embedding_dim) = weights.shape
+#
+# import io
+#
+# out_v = io.open('vecs.tsv', 'w', encoding='utf-8')
+# out_m = io.open('meta.tsv', 'w', encoding='utf-8')
+# for word_num in range(1, vocab_size):
+#     word = dict[word_num]
+#     embeddings = weights[word_num]
+#     out_m.write(word + "\n")
+#     out_v.write('\t'.join([str(x) for x in embeddings]) + '\n')
+# out_v.close()
+# out_m.close()
+#
+# try:
+#     from google.colab import files
+# except ImportError:
+#     pass
+# else:
+#     files.download('vecs.tsv')
+#     files.download('meta.tsv')
 
 pass
 

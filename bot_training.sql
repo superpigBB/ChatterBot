@@ -21,10 +21,10 @@ INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'PreGA jira visua
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Pre-GA Jira analytics reports', 'Here is the Pre-GA Jira and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Pre-GA jira dashboard and viz', 'Here is the Pre-GA Jira and its related dashboards for your analysis');
 
-INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'ARTS dashboards', 'Here is the Jira ARTS and its related dashboards for your analysis');
-INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'ARTS viz', 'Here is the Jira ARTS and its related dashboards for your analysis');
-INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'ARTS reports', 'Here is the Jira ARTS and its related dashboards for your analysis');
-INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'ARTS visualization', 'Here is the Jira ARTS and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'ARTS dashboards', 'Here is the ARTS and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'ARTS viz', 'Here is the ARTS and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'ARTS reports', 'Here is the ARTS and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'ARTS visualization', 'Here is the ARTS and its related dashboards for your analysis');
 
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Customer related dashboards', 'Here is the External ARs analytics and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Customer viz', 'Here is the External ARs analytics and its related dashboards for your analysis');
