@@ -43,7 +43,7 @@ connection.close()
 
 # Tokenization on texts
 oov_tok = "<OOV>"
-tokenizer = Tokenizer(num_words=150)
+tokenizer = Tokenizer(num_words=150, oov_token=oov_tok)
 
 tokenizer.fit_on_texts(input_corpus)
 print(f"input word index: {tokenizer.word_index}")
