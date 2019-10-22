@@ -109,56 +109,66 @@ def plot_graphs(history, string):
 
 plot_graphs(history, 'accuracy')
 
-# prediction
-seed_text = "What can I call your name？"
-token_list = tokenizer.texts_to_sequences([seed_text])[0]
-token_list = pad_sequences([token_list], maxlen=max_sequence_len, padding='post')
-predicted = model.predict_classes(token_list, verbose=0)
-prob = model.predict_proba(token_list)
-print(f"predicted: {predicted}")
-print(f"prob: {prob}")
-max_index = np.argmax(prob)
-print(f"max index of prob is {np.argmax(prob)}")
-max_prob = prob[0][max_index] * 100
-print(f"word index: \n{tokenizer.word_index}")
-
 dict = dict([(value, key) for (key, value) in tokenizer.word_index.items()])
-tag = dict[predicted[0]]
-print(f"tag: {tag}")
-print(f"max prob for tag {tag}: {max_prob}%")
-responses = response_dict[tag]
-print(f"responses: {responses}")
+# prediction
+def predict_test(seed_text):
+    token_list = tokenizer.texts_to_sequences([seed_text])[0]
+    token_list = pad_sequences([token_list], maxlen=max_sequence_len, padding='post')
+    predicted = model.predict_classes(token_list, verbose=0)
+    prob = model.predict_proba(token_list)
+    print(f"predicted: {predicted}")
+    print(f"prob: {prob}")
+    max_index = np.argmax(prob)
+    print(f"max index of prob is {np.argmax(prob)}")
+    max_prob = prob[0][max_index] * 100
+    print(f"word index: \n{tokenizer.word_index}")
 
-# Load into Tensorflow model for visualization
-e = model.layers[0]
-weights = e.get_weights()[0]
-print(weights.shape)  # shape: (vocab_size, embedding_dim)
-(vocab_size, embedding_dim) = weights.shape
+    tag = dict[predicted[0]]
+    print(f"tag: {tag}")
+    print(f"max prob for tag {tag}: {max_prob}%")
+    responses = response_dict[tag]
+    print(f"responses: {responses}")
 
-import io
+predict_test("I want to download DUDL Data")
+predict_test("I want data")
 
-out_v = io.open('vecs.tsv', 'w', encoding='utf-8')
-out_m = io.open('meta.tsv', 'w', encoding='utf-8')
-for word_num in range(1, vocab_size):
-    word = dict[word_num]
-    embeddings = weights[word_num]
-    out_m.write(word + "\n")
-    out_v.write('\t'.join([str(x) for x in embeddings]) + '\n')
-out_v.close()
-out_m.close()
 
-try:
-    from google.colab import files
-except ImportError:
-    pass
-else:
-    files.download('vecs.tsv')
-    files.download('meta.tsv')
+
+# # Load into Tensorflow model for visualization
+# e = model.layers[0]
+# weights = e.get_weights()[0]
+# print(weights.shape)  # shape: (vocab_size, embedding_dim)
+# (vocab_size, embedding_dim) = weights.shape
+#
+# import io
+#
+# out_v = io.open('vecs.tsv', 'w', encoding='utf-8')
+# out_m = io.open('meta.tsv', 'w', encoding='utf-8')
+# for word_num in range(1, vocab_size):
+#     word = dict[word_num]
+#     embeddings = weights[word_num]
+#     out_m.write(word + "\n")
+#     out_v.write('\t'.join([str(x) for x in embeddings]) + '\n')
+# out_v.close()
+# out_m.close()
+#
+# try:
+#     from google.colab import files
+# except ImportError:
+#     pass
+# else:
+#     files.download('vecs.tsv')
+#     files.download('meta.tsv')
 
 pass
 
 
 
-
+# # Save the model
+# model.SAVE("model.h5")
+#
+#
+# # # Load the model
+# # model = keras.models.load_model("model.h5")
 
 
