@@ -21,7 +21,7 @@ engine = sqlalchemy.create_engine(
 connection = engine.connect()
 trans = connection.begin()
 
-query = 'SELECT * FROM training_table'
+query = 'SELECT * FROM training_bot'
 
 connection = engine.connect()
 results = connection.execute(query)
@@ -121,7 +121,11 @@ def predict_test(seed_text):
     print(f"predicted: {predicted}")
     print(f"prob: {prob}")
     max_index = np.argmax(prob)
+    top_3_index = (-prob).argsort()[0][:3] #[-3:][::-1]
     print(f"max index of prob is {np.argmax(prob)}")
+    print(f"top 3 index of prob is {top_3_index}")
+    for i in top_3_index:
+        print(f"top3 index is {i} -> {prob[0][i] * 100}%")
     max_prob = prob[0][max_index] * 100
     print(f"word index: \n{tokenizer.word_index}")
 
@@ -132,35 +136,37 @@ def predict_test(seed_text):
     print(f"responses: {responses}")
 
 predict_test("I want to download DUDL Data")
-predict_test("I want data")
+predict_test("Show me dudl data")
+predict_test("I want DUDL reports")
+predict_test("definition of DUDL")
 
 
 
-# # Load into Tensorflow model for visualization
-# e = model.layers[0]
-# weights = e.get_weights()[0]
-# print(weights.shape)  # shape: (vocab_size, embedding_dim)
-# (vocab_size, embedding_dim) = weights.shape
-#
-# import io
-#
-# out_v = io.open('vecs.tsv', 'w', encoding='utf-8')
-# out_m = io.open('meta.tsv', 'w', encoding='utf-8')
-# for word_num in range(1, vocab_size):
-#     word = dict[word_num]
-#     embeddings = weights[word_num]
-#     out_m.write(word + "\n")
-#     out_v.write('\t'.join([str(x) for x in embeddings]) + '\n')
-# out_v.close()
-# out_m.close()
-#
-# try:
-#     from google.colab import files
-# except ImportError:
-#     pass
-# else:
-#     files.download('vecs.tsv')
-#     files.download('meta.tsv')
+# Load into Tensorflow model for visualization
+e = model.layers[0]
+weights = e.get_weights()[0]
+print(weights.shape)  # shape: (vocab_size, embedding_dim)
+(vocab_size, embedding_dim) = weights.shape
+
+import io
+
+out_v = io.open('vecs.tsv', 'w', encoding='utf-8')
+out_m = io.open('meta.tsv', 'w', encoding='utf-8')
+for word_num in range(1, vocab_size):
+    word = dict[word_num]
+    embeddings = weights[word_num]
+    out_m.write(word + "\n")
+    out_v.write('\t'.join([str(x) for x in embeddings]) + '\n')
+out_v.close()
+out_m.close()
+
+try:
+    from google.colab import files
+except ImportError:
+    pass
+else:
+    files.download('vecs.tsv')
+    files.download('meta.tsv')
 
 pass
 
