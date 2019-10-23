@@ -6,7 +6,7 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.layers import Embedding, LSTM, Dense, Bidirectional, GRU
-from tensorflow.keras.models import Sequential
+from tensorflow.keras.models import Sequential, load_model, model_from_json
 from tensorflow.keras.optimizers import Adam
 import numpy as np
 import nltk
@@ -55,10 +55,6 @@ print(f"total words: {tokenizer.word_index}"
 
 # Sequence all texts
 input_sequences = tokenizer.texts_to_sequences(input_corpus)
-# input_sequences = []        # Input
-# for line in input_corpus:
-#     token_list = tokenizer.texts_to_sequences([line])[0]
-#     input_sequences.append(token_list)
 
 # max sequence length of the input
 max_sequence_len = max(len(x) for x in input_sequences)
@@ -66,12 +62,6 @@ max_sequence_len = max(len(x) for x in input_sequences)
 # print(f"input_sequences:{input_sequences}\nmax_sequence_len: {max_sequence_len}")
 
 label_sequences = tokenizer.texts_to_sequences(label_corpus)
-# label_sequences = []    # Label
-# for line in label_corpus:
-#     if line == '':
-#         continue
-#     token_list = tokenizer.texts_to_sequences([line])[0]
-#     label_sequences.append(token_list)
 
 label_max_sequence_len = max([len(x) for x in label_sequences])
 # print(f"label_sequences:{label_sequences}\nlabel_max_sequence_len: {label_max_sequence_len}")
@@ -88,37 +78,64 @@ xs = input_sequences
 ys = tf.keras.utils.to_categorical(label_sequences, num_classes=total_words)
 # print(f"ys: \n{ys }")
 
-model = Sequential()
-model.add(Embedding(total_words, 20, input_length=max_sequence_len))   #64
-# model.add(Bidirectional(LSTM(20)))  # LSTM(150) # GRU(32)
-# model.add(Dense(total_words, activation='relu'))
-model.add(LSTM(20))   #total_words
-model.add(Dense(total_words, activation='softmax'))
-# adam = Adam(lr=0.01)  # learning rate
-adam = Adam()
-model.compile(loss='categorical_crossentropy', optimizer=adam,  metrics=['accuracy'])
-history = model.fit(xs, ys, epochs=500, verbose=1)
-model.summary()
+# model = Sequential()
+# model.add(Embedding(total_words, 20, input_length=max_sequence_len))   #64
+# # model.add(Bidirectional(LSTM(20)))  # LSTM(150) # GRU(32)
+# # model.add(Dense(total_words, activation='relu'))
+# model.add(LSTM(20))   #total_words
+# model.add(Dense(total_words, activation='softmax'))
+# # adam = Adam(lr=0.01)  # learning rate
+# adam = Adam()
+# model.compile(loss='categorical_crossentropy', optimizer=adam,  metrics=['accuracy'])
+# history = model.fit(xs, ys, epochs=500, verbose=1)
+# model.summary()
+
+seed = 7
+from sklearn.model_selection import train_test_split
+
+load_model = False
+
+if load_model:
+    model = load_model('model_new.h5')
+    model.summary()
+else:
+    # Split into Validation and Training Sets
+    x_train, x_test, y_train, y_test = train_test_split(xs, ys, test_size=0.33, random_state=seed)
+    model = Sequential()
+    model.add(Embedding(total_words, 20, input_length=max_sequence_len))   #64
+    # model.add(Bidirectional(LSTM(20)))  # LSTM(150) # GRU(32)
+    # model.add(Dense(total_words, activation='relu'))
+    model.add(LSTM(20))   #total_words
+    model.add(Dense(total_words, activation='softmax'))
+    adam = Adam(lr=0.01)  # learning rate
+    # adam = Adam()
+    model.compile(loss='categorical_crossentropy', optimizer=adam,  metrics=['accuracy'])
+    model_json = model.to_json()
+
+    # model = load_model('my_model_weights.h5')
+    history = model.fit(x_train, y_train, validation_data=(x_test, y_test), epochs=500, verbose=1)
+
+    model.save("model_new.h5")
+    print("Saved model to disk")
+
+
+# evaluate the model
+scores = model.evaluate(xs, ys, verbose=0)
+print("%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
+
 # Plot Accuracy and loss
 import matplotlib.pyplot as plt
 
 def plot_graphs(history, string):
     plt.plot(history.history[string])
-    plt.plot(history.history['loss'])
+    plt.plot(history.history['val_'+string])
     plt.xlabel('Epochs')
     plt.ylabel(string)
-    plt.legend([string, 'loss'])
+    plt.legend([string, 'val_'+string])
     plt.show()
 
 plot_graphs(history, 'accuracy')
-
-# from keras.wrappers.scikit_learn import KerasClassifier
-# from sklearn.model_selection import KFold
-# from sklearn.model_selection import cross_val_score
-# estimator = KerasClassifier(build_fn=model, nb_epoch=200, batch_size=5, verbose=0)
-# kfold = KFold(n_splits=10, shuffle=True, random_state=7)
-# results = cross_val_score(estimator, xs, ys, cv=kfold)
-# print("Accuracy: %.2f%% (%.2f%%)" % (results.mean()*100, results.std()*100))
+plot_graphs(history, "loss")
 
 # Reverse key pair
 dict = dict([(value, key) for (key, value) in tokenizer.word_index.items()])
