@@ -2,32 +2,26 @@ INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'DUDL related das
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'DUDL Viz', 'Here is the DUDL and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'DUDL related charts and dashboards', 'Here is the DUDL and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'DUDL Reports', 'Here is the DUDL and its related dashboards for your analysis');
-INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'DUDL dashboards, dashboard, dashboard', 'Here is the DUDL and its related dashboards for your analysis');
 
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Install dashboards', 'Here is the InstallBase and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Install Viz', 'Here is the InstallBase and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Installbase analytical reports', 'Here is the InstallBase and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Install base reports', 'Here is the InstallBase and its related dashboards for your analysis');
-INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Install dashboards, dashboard, dashboard', 'Here is the InstallBase and its related dashboards for your analysis');
 
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Escape Analysis visualization', 'Here is the FEAP and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Escape Analysis dashboards', 'Here is the FEAP and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'feap analytical reports', 'Here is the FEAP and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'FEAP Viz', 'Here is the FEAP and its related dashboards for your analysis');
-INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'FEAP dasjnpards. dashboard, dashboard', 'Here is the FEAP and its related dashboards for your analysis');
 
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Pre-GA jira dashboards', 'Here is the Pre-GA Jira and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'PreGA jira visualization', 'Here is the Pre-GA Jira and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Pre-GA Jira analytics reports', 'Here is the Pre-GA Jira and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Pre-GA jira dashboard and viz', 'Here is the Pre-GA Jira and its related dashboards for your analysis');
-INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Pre-GA jira dashboard, dashboards, dashboard', 'Here is the Pre-GA Jira and its related dashboards for your analysis');
-
 
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'ARTS dashboards', 'Here is the ARTS and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'ARTS viz', 'Here is the ARTS and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'ARTS reports', 'Here is the ARTS and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'ARTS visualization', 'Here is the ARTS and its related dashboards for your analysis');
-INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'dashboard, ARTS dashboard', 'Here is the ARTS and its related dashboards for your analysis');
 
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Customer related dashboards', 'Here is the External ARs analytics and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Customer viz', 'Here is the External ARs analytics and its related dashboards for your analysis');
@@ -142,22 +136,17 @@ INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'install base rep
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'feap visualization', 'Here is the FEAP and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Escape Analysis', 'Here is the FEAP and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'feap reports', 'Here is the FEAP and its related dashboards for your analysis');
-INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'feap reports, report, report, dashboards', 'Here is the FEAP and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'FEAP related reports', 'Here is the FEAP and its related dashboards for your analysis');
-INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'FEAP metrics reports, report, dashboards, dashboard, viz, visualization', 'Here is the FEAP and its related dashboards for your analysis');
 
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Pre-GA jira viz', 'Here is the Pre-GA Jira and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'PreGA jira report', 'Here is the Pre-GA Jira and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Pre-GA related reports', 'Here is the Pre-GA Jira and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Pre-GA dashboard', 'Here is the Pre-GA Jira and its related dashboards for your analysis');
-INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Pre-GA viz, dashboards, vizzes, dashboard, reports, analytical reports', 'Here is the Pre-GA Jira and its related dashboards for your analysis');
-
 
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'arts report', 'Here is the ARTS and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'arts related dashboard', 'Here is the ARTS and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'ARTS reports links', 'Here is the ARTS and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'ARTS link', 'Here is the ARTS and its related dashboards for your analysis');
-INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'ARTS link, dashboard, metrics, analytical dashboards, metrics, report, reports', 'Here is the ARTS and its related dashboards for your analysis');
 
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Customer related vizzes', 'Here is the External ARs analytics and its related dashboards for your analysis');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Customer visualization', 'Here is the External ARs analytics and its related dashboards for your analysis');

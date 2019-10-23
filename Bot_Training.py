@@ -37,7 +37,7 @@ for row in results:
     label_corpus.append(tag)
     response_dict[tag].add(response)
 
-print(f"input_corpose:{input_corpus} \nlabel_corpose: {label_corpus}")
+# print(f"input_corpose:{input_corpus} \nlabel_corpose: {label_corpus}")
 
 connection.close()
 
@@ -46,7 +46,7 @@ oov_tok = "<OOV>"
 tokenizer = Tokenizer(num_words=150, oov_token=oov_tok)
 
 tokenizer.fit_on_texts(input_corpus)
-print(f"input word index: {tokenizer.word_index}")
+# print(f"input word index: {tokenizer.word_index}")
 tokenizer.fit_on_texts(label_corpus)
 total_words = len(tokenizer.word_index) + 1
 print(f"total words: {tokenizer.word_index}"
@@ -63,7 +63,7 @@ input_sequences = tokenizer.texts_to_sequences(input_corpus)
 # max sequence length of the input
 max_sequence_len = max(len(x) for x in input_sequences)
 
-print(f"input_sequences:{input_sequences}\nmax_sequence_len: {max_sequence_len}")
+# print(f"input_sequences:{input_sequences}\nmax_sequence_len: {max_sequence_len}")
 
 label_sequences = tokenizer.texts_to_sequences(label_corpus)
 # label_sequences = []    # Label
@@ -74,7 +74,7 @@ label_sequences = tokenizer.texts_to_sequences(label_corpus)
 #     label_sequences.append(token_list)
 
 label_max_sequence_len = max([len(x) for x in label_sequences])
-print(f"label_sequences:{label_sequences}\nlabel_max_sequence_len: {label_max_sequence_len}")
+# print(f"label_sequences:{label_sequences}\nlabel_max_sequence_len: {label_max_sequence_len}")
 
 # Padded sequences
 input_sequences = np.array(pad_sequences(input_sequences, maxlen=max_sequence_len, padding='post'))
@@ -82,19 +82,20 @@ label_sequences = np.array(pad_sequences(label_sequences, maxlen=label_max_seque
 
 # x and y set up
 xs = input_sequences
-print(f"xs: \n{input_sequences}\nlabels: \n{label_sequences}")
+# print(f"xs: \n{input_sequences}\nlabels: \n{label_sequences}")
 
 # Categorize y before training the model
 ys = tf.keras.utils.to_categorical(label_sequences, num_classes=total_words)
-print(f"ys: \n{ys }")
+# print(f"ys: \n{ys }")
 
 model = Sequential()
-model.add(Embedding(total_words, 64, input_length=max_sequence_len))
+model.add(Embedding(total_words, 20, input_length=max_sequence_len))   #64
 # model.add(Bidirectional(LSTM(20)))  # LSTM(150) # GRU(32)
 # model.add(Dense(total_words, activation='relu'))
-model.add(LSTM(total_words ))
+model.add(LSTM(20))   #total_words
 model.add(Dense(total_words, activation='softmax'))
-adam = Adam(lr=0.01)  # learning rate
+# adam = Adam(lr=0.01)  # learning rate
+adam = Adam()
 model.compile(loss='categorical_crossentropy', optimizer=adam,  metrics=['accuracy'])
 history = model.fit(xs, ys, epochs=500, verbose=1)
 model.summary()
@@ -126,8 +127,8 @@ def predict_test(seed_text):
     top_3_index = (-prob).argsort()[0][:3] #[-3:][::-1]
     print(f"max index of prob is {np.argmax(prob)}")
     print(f"top 3 index of prob is {top_3_index}")
-    # for i in top_4_index:
-    #     print(f"top4 index is {i} -> {prob[0][i] * 100}%")
+    for i in top_3_index:
+        print(f"top3 index is {i} -> {prob[0][i] * 100}%")
     max_prob = prob[0][max_index] * 100
     print(f"word index: \n{tokenizer.word_index}")
     tags = [dict[i] for i in top_3_index]
@@ -135,12 +136,14 @@ def predict_test(seed_text):
     responses = []  # responses to be returned
     for tag in tags:
         if tag in ['greeting', 'age', 'goodbye']:
-            responses.append(response_dict[tag])
+            responses.append(''.join(response_dict[tag]))
         else:
-            if tag_response(seed_text, tag, responses):
-                responses = tag_response(seed_text, tag, responses)
-    print(f"tags: {tags}")
-    print(f"max prob for tag {tag}: {max_prob}%")
+            tag_response(seed_text, tag, responses)
+            # if tag_response(seed_text, tag, responses):
+            #     continue
+            #     responses = tag_response(seed_text, tag, responses)
+    # print(f"tags: {tags}")
+    # print(f"max prob for tag {tag}: {max_prob}%")
     # responses = response_dict[tag]
     print(f"responses: {responses}")
     return responses
@@ -186,6 +189,7 @@ def tag_response(seed_text, tag, responses):
         elif re.search('SR', seed_text, flags=re.I) and re.search('SR', response, flags=re.I):
             responses.append(response)
             return responses
+    return responses.append(str(tag) + "what?")
 
 
 
@@ -195,11 +199,12 @@ def tag_response(seed_text, tag, responses):
 # predict_test("Show me dudl data")
 # predict_test("I want DUDL reports")
 # predict_test("definition of DUDL")
-# # predict_test("Hi Captain Pi")
+# predict_test("Hi Captain Pi")
 # predict_test("Bye Captain Pi")
 # predict_test("I want to download data")
-
+# predict_test("I want a dashboard")
 # predict_test("Hi")
+
 
 
 
