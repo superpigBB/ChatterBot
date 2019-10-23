@@ -93,7 +93,7 @@ ys = tf.keras.utils.to_categorical(label_sequences, num_classes=total_words)
 seed = 7
 from sklearn.model_selection import train_test_split
 
-model_loaded = True
+model_loaded = False
 
 if model_loaded:
     model = load_model('model_new.h5')
@@ -102,10 +102,10 @@ else:
     # Split into Validation and Training Sets
     x_train, x_test, y_train, y_test = train_test_split(xs, ys, test_size=0.33, random_state=seed)
     model = Sequential()
-    model.add(Embedding(total_words, 20, input_length=max_sequence_len))   #64
+    model.add(Embedding(total_words, 20, input_length=max_sequence_len))   #64 #20
     # model.add(Bidirectional(LSTM(20)))  # LSTM(150) # GRU(32)
     # model.add(Dense(total_words, activation='relu'))
-    model.add(LSTM(20))   #total_words
+    model.add(LSTM(20))   #total_words #20
     model.add(Dense(total_words, activation='softmax'))
     adam = Adam(lr=0.01)  # learning rate
     # adam = Adam()
@@ -123,19 +123,19 @@ else:
 scores = model.evaluate(xs, ys, verbose=0)
 print("%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
 
-# # Plot Accuracy and loss
-# import matplotlib.pyplot as plt
-#
-# def plot_graphs(history, string):
-#     plt.plot(history.history[string])
-#     plt.plot(history.history['val_'+string])
-#     plt.xlabel('Epochs')
-#     plt.ylabel(string)
-#     plt.legend([string, 'val_'+string])
-#     plt.show()
-#
-# plot_graphs(history, 'accuracy')
-# plot_graphs(history, "loss")
+# Plot Accuracy and loss
+import matplotlib.pyplot as plt
+
+def plot_graphs(history, string):
+    plt.plot(history.history[string])
+    plt.plot(history.history['val_'+string])
+    plt.xlabel('Epochs')
+    plt.ylabel(string)
+    plt.legend([string, 'val_'+string])
+    plt.show()
+
+plot_graphs(history, 'accuracy')
+plot_graphs(history, "loss")
 
 # Reverse key pair
 dict = dict([(value, key) for (key, value) in tokenizer.word_index.items()])
