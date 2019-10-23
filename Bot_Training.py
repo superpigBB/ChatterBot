@@ -137,11 +137,13 @@ def predict_test(seed_text):
         if tag in ['greeting', 'age', 'goodbye']:
             responses.append(response_dict[tag])
         else:
-            responses = tag_response(seed_text, tag, responses)
+            if tag_response(seed_text, tag, responses):
+                responses = tag_response(seed_text, tag, responses)
     print(f"tags: {tags}")
     print(f"max prob for tag {tag}: {max_prob}%")
     # responses = response_dict[tag]
     print(f"responses: {responses}")
+    return responses
 
 import re
 def tag_response(seed_text, tag, responses):
@@ -193,10 +195,11 @@ def tag_response(seed_text, tag, responses):
 # predict_test("Show me dudl data")
 # predict_test("I want DUDL reports")
 # predict_test("definition of DUDL")
-# predict_test("Hi Captain Pi")
+# # predict_test("Hi Captain Pi")
 # predict_test("Bye Captain Pi")
+# predict_test("I want to download data")
 
-predict_test("Hi")
+# predict_test("Hi")
 
 
 
