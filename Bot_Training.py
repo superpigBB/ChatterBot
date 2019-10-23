@@ -112,6 +112,15 @@ def plot_graphs(history, string):
 
 plot_graphs(history, 'accuracy')
 
+# from keras.wrappers.scikit_learn import KerasClassifier
+# from sklearn.model_selection import KFold
+# from sklearn.model_selection import cross_val_score
+# estimator = KerasClassifier(build_fn=model, nb_epoch=200, batch_size=5, verbose=0)
+# kfold = KFold(n_splits=10, shuffle=True, random_state=7)
+# results = cross_val_score(estimator, xs, ys, cv=kfold)
+# print("Accuracy: %.2f%% (%.2f%%)" % (results.mean()*100, results.std()*100))
+
+# Reverse key pair
 dict = dict([(value, key) for (key, value) in tokenizer.word_index.items()])
 
 
@@ -130,7 +139,7 @@ def predict_test(seed_text):
     for i in top_3_index:
         print(f"top3 index is {i} -> {prob[0][i] * 100}%")
     max_prob = prob[0][max_index] * 100
-    print(f"word index: \n{tokenizer.word_index}")
+    # print(f"word index: \n{tokenizer.word_index}")
     tags = [dict[i] for i in top_3_index]
     # tag = dict[predicted[0]]
     responses = []  # responses to be returned
@@ -146,7 +155,7 @@ def predict_test(seed_text):
     # print(f"max prob for tag {tag}: {max_prob}%")
     # responses = response_dict[tag]
     print(f"responses: {responses}")
-    return responses
+    return tags, responses
 
 import re
 def tag_response(seed_text, tag, responses):
@@ -189,7 +198,7 @@ def tag_response(seed_text, tag, responses):
         elif re.search('SR', seed_text, flags=re.I) and re.search('SR', response, flags=re.I):
             responses.append(response)
             return responses
-    return responses.append(str(tag) + "what?")
+    return responses.append(str(tag) + " what?")
 
 
 
