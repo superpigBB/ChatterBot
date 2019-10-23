@@ -93,9 +93,9 @@ ys = tf.keras.utils.to_categorical(label_sequences, num_classes=total_words)
 seed = 7
 from sklearn.model_selection import train_test_split
 
-load_model = False
+model_loaded = True
 
-if load_model:
+if model_loaded:
     model = load_model('model_new.h5')
     model.summary()
 else:
@@ -123,19 +123,19 @@ else:
 scores = model.evaluate(xs, ys, verbose=0)
 print("%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
 
-# Plot Accuracy and loss
-import matplotlib.pyplot as plt
-
-def plot_graphs(history, string):
-    plt.plot(history.history[string])
-    plt.plot(history.history['val_'+string])
-    plt.xlabel('Epochs')
-    plt.ylabel(string)
-    plt.legend([string, 'val_'+string])
-    plt.show()
-
-plot_graphs(history, 'accuracy')
-plot_graphs(history, "loss")
+# # Plot Accuracy and loss
+# import matplotlib.pyplot as plt
+#
+# def plot_graphs(history, string):
+#     plt.plot(history.history[string])
+#     plt.plot(history.history['val_'+string])
+#     plt.xlabel('Epochs')
+#     plt.ylabel(string)
+#     plt.legend([string, 'val_'+string])
+#     plt.show()
+#
+# plot_graphs(history, 'accuracy')
+# plot_graphs(history, "loss")
 
 # Reverse key pair
 dict = dict([(value, key) for (key, value) in tokenizer.word_index.items()])
@@ -229,7 +229,8 @@ def tag_response(seed_text, tag, responses):
 # predict_test("Bye Captain Pi")
 # predict_test("I want to download data")
 # predict_test("I want a dashboard")
-# predict_test("Hi")
+predict_test("hi")
+predict_test("Hi")
 
 
 
