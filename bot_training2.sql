@@ -213,3 +213,142 @@ INSERT INTO training_bot(tag, pattern, response) VALUES('VIEWONLINE', 'Jira data
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIEWONLINE', 'show FEAP table online', 'View Top 50 FEAP data');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIEWONLINE', 'show me FEAP data', 'View Top 50 FEAP data');
 INSERT INTO training_bot(tag, pattern, response) VALUES('VIEWONLINE', 'view of feap', 'View Top 50 FEAP data');
+
+
+
+
+
+
+
+
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'DUDL report', 'Here is the DUDL and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'report DUDL', 'Here is the DUDL and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'show me dudl reports', 'Here is the DUDL and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'dudl report link', 'Here is the DUDL and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'dudl related viz', 'Here is the DUDL and its related dashboards for your analysis');
+
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Install viz', 'Here is the InstallBase and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Install base report', 'Here is the InstallBase and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Installbase analytical reports', 'Here is the InstallBase and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'show me install base', 'Here is the InstallBase and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'where is Install dashboards, dashboard, dashboard', 'Here is the InstallBase and its related dashboards for your analysis');
+
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'feap viz', 'Here is the FEAP and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'feap report', 'Here is the FEAP and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'give me feap reports', 'Here is the FEAP and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'show me FEAP Viz', 'Here is the FEAP and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'where is FEAP dasjnpards. dashboard, dashboard', 'Here is the FEAP and its related dashboards for your analysis');
+
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'prega report jira', 'Here is the Pre-GA Jira and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'PreGA jira visualization', 'Here is the Pre-GA Jira and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Jira prega analytics reports', 'Here is the Pre-GA Jira and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'Pre-Ga report', 'Here is the Pre-GA Jira and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'PreGA jira dashboard, dashboards, dashboard', 'Here is the Pre-GA Jira and its related dashboards for your analysis');
+
+
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'show me ARTS dashboards', 'Here is the ARTS and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'where is ARTS viz', 'Here is the ARTS and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'I want ARTS reports', 'Here is the ARTS and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'I want to see ARTS', 'Here is the ARTS and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'I need arts report, ARTS dashboard', 'Here is the ARTS and its related dashboards for your analysis');
+
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'external customer dashboards', 'Here is the External ARs analytics and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'external customer report', 'Here is the External ARs analytics and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'ar report', 'Here is the External ARs analytics and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'ars reports', 'Here is the External ARs analytics and its related dashboards for your analysis');
+
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'i want SR dashboards', 'Here is the SRs and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'where is SR report', 'Here is the SRs and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'show me sr report', 'Here is the SRs and its related dashboards for your analysis');
+
+
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'SafeLaunch report', 'Here is the SafeLaunch and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'show me SafeLaunch report', 'Here is the SafeLaunch and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'where is SafeLaunch reports', 'Here is the SafeLaunch and its related dashboards for your analysis');
+
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'show me Trident viz ', 'Here is the Trident and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'where is Trident Dashboard', 'Here is the Trident and its related dashboards for your analysis');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIZ', 'trident related report', 'Here is the Trident and its related dashboards for your analysis');
+
+INSERT INTO training_bot(tag, pattern, response) VALUES('DOWNLOAD', 'download dudl data', 'Download DUDL Raw Data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('DOWNLOAD', 'download dudl table', 'Download DUDL Raw Data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('DOWNLOAD', 'I want dudl data', 'Download DUDL Raw Data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('DOWNLOAD', 'give me dudl data', 'Download DUDL Raw Data');
+
+INSERT INTO training_bot(tag, pattern, response) VALUES('DOWNLOAD', 'get customer ars data', 'Download External Customer ARs Raw Data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('DOWNLOAD', 'Download ar data', 'Download External Customer ARs Raw Data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('DOWNLOAD', 'download ar', 'Download External Customer ARs Raw Data');
+
+INSERT INTO training_bot(tag, pattern, response) VALUES('DOWNLOAD', 'Give me powermax data', 'Download PowerMax CLCA Data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('DOWNLOAD', 'Download PowerMax CLCA data', 'Download PowerMax CLCA Data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('DOWNLOAD', 'PowerMax download', 'Download PowerMax CLCA Data');
+
+INSERT INTO training_bot(tag, pattern, response) VALUES('DOWNLOAD', 'download Install base Data', 'Download InstallBase Data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('DOWNLOAD', 'I want install data', 'Download InstallBase Data');
+
+INSERT INTO training_bot(tag, pattern, response) VALUES('DOWNLOAD', 'I want FEAP Data', 'Download FEAP Data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('DOWNLOAD', 'give me FEAP table', 'Download FEAP Data');
+
+INSERT INTO training_bot(tag, pattern, response) VALUES('DOWNLOAD', 'give me Jira Data', 'Download Jira Data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('DOWNLOAD', 'Jira download', 'Download Jira Data');
+
+INSERT INTO training_bot(tag, pattern, response) VALUES('DOWNLOAD', 'give me remedy  Data', 'Download Remedy Data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('DOWNLOAD', 'i need remedy data', 'Download Remedy Data');
+
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIEWONLINE', 'show me sr data', 'View Top 50 SR Data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIEWONLINE', 'Show sr', 'View Top 50 SR Data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIEWONLINE', 'let me see sr data', 'View Top 50 SR Data');
+
+
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIEWONLINE', 'see DUDL data', 'View Top 50 DUDL Data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIEWONLINE', 'Show dudl data', 'View Top 50 DUDL Data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIEWONLINE', 'Display DUDL table', 'View Top 50 DUDL Data');
+
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIEWONLINE', 'let me see ARs Data', 'View Top 50 External Customer ARs Data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIEWONLINE', 'see Customer ARs', 'View Top 50 External Customer ARs Data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIEWONLINE', 'ar data', 'View Top 50 External Customer ARs Data');
+
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIEWONLINE', 'Install Base Data', 'View Top 50 Install Base Data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIEWONLINE', 'Install Base table', 'View Top 50 Install Base Data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIEWONLINE', 'see Install data', 'View Top 50 Install Base Data');
+
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIEWONLINE', 'Display Jira table', 'View Top 50 jira tickets');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIEWONLINE', 'whats Jira data', 'View Top 50 jira tickets');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIEWONLINE', 'see jira data', 'View Top 50 jira tickets');
+
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIEWONLINE', 'observe FEAP', 'View Top 50 FEAP data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIEWONLINE', 'look feap data', 'View Top 50 FEAP data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('VIEWONLINE', 'check feap table', 'View Top 50 FEAP data');
+
+INSERT INTO training_bot(tag, pattern, response) VALUES('GREETING', 'hi', 'Howdy! My name is Captain Pi, I am a AI Data Py-ilot Created by Vicky and TY');
+INSERT INTO training_bot(tag, pattern, response) VALUES('GREETING', 'how are you', 'Howdy! My name is Captain Pi, I am a AI Data Py-ilot Created by Vicky and TY');
+INSERT INTO training_bot(tag, pattern, response) VALUES('GREETING', 'whats your name', 'Howdy! My name is Captain Pi, I am a AI Data Py-ilot Created by Vicky and TY');
+INSERT INTO training_bot(tag, pattern, response) VALUES('GREETING', 'how can i address you', 'Howdy! My name is Captain Pi, I am a AI Data Py-ilot Created by Vicky and TY');
+
+INSERT INTO training_bot(tag, pattern, response) VALUES('AGE', 'age', 'I\'m only 2 days\'s old');
+INSERT INTO training_bot(tag, pattern, response) VALUES('AGE', 'whats your age', 'I\'m only 2 days\'s old');
+
+INSERT INTO training_bot(tag, pattern, response) VALUES('GOODBYE', 'bye', 'Glad to talk with you today! Bye');
+INSERT INTO training_bot(tag, pattern, response) VALUES('GOODBYE', 'cya', 'Glad to talk with you today! Bye');
+
+INSERT INTO training_bot(tag, pattern, response) VALUES('Training', 'whats dudl', 'DUDL table contains additinal information around SW Fixed in Data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('Training', 'dudl', 'DUDL table contains additinal information around SW Fixed in Data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('Training', 'DU', 'DU is Data Loss. Customer mustor restore from backup when losing their data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('Training', 'DL', 'DL is Data Unavailabe. Customer can restore access to data without backu when they lose access to data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('Training', 'SafeLaunch', 'SafeLaunch is a process which comes after Safe Launch that creates internal mitigations to resolove in market product issues');
+INSERT INTO training_bot(tag, pattern, response) VALUES('Training', 'FEAP', 'fEAP is Field Escape Analtsis Process. A post GA issue mitigation process designed to examine incoming Customer tickets and determine how that issue excape our internal testing and wound up being hit by a customer');
+INSERT INTO training_bot(tag, pattern, response) VALUES('Training', 'Installs', 'family and code_version1_derived');
+INSERT INTO training_bot(tag, pattern, response) VALUES('Training', 'afeLaunch', 'SafeLaunch is a process which comes after Safe Launch that creates internal mitigations to resolove in market product issues');
+INSERT INTO training_bot(tag, pattern, response) VALUES('Training', 'whats FEAP', 'FEAP is Field Escape Analtsis Process. A post GA issue mitigation process designed to examine incoming Customer tickets and determine how that issue excape our internal testing and wound up being hit by a customer');
+INSERT INTO training_bot(tag, pattern, response) VALUES('Training', 'define DUDL', 'DUDL table contains additinal information around SW Fixed in Data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('Training', 'understand DUDL', 'DUDL table contains additinal information around SW Fixed in Data');
+INSERT INTO training_bot(tag, pattern, response) VALUES('Training', 'whats FEAP', 'FEAP is Field Escape Analtsis Process. A post GA issue mitigation process designed to examine incoming Customer tickets and determine how that issue excape our internal testing and wound up being hit by a customer');
+INSERT INTO training_bot(tag, pattern, response) VALUES('Training', 'what is SafeLaunch', 'SafeLaunch is a process which comes after Safe Launch that creates internal mitigations to resolove in market product issues');
+
+INSERT INTO training_bot(tag, pattern, response) VALUES('ADHOC', 'DUDL Last 3 months', 'DUDL Data for the last 3 months');
+INSERT INTO training_bot(tag, pattern, response) VALUES('ADHOC', 'Customer ARs Last 2 months', 'Customer ARs for the last 2 months');
+INSERT INTO training_bot(tag, pattern, response) VALUES('ADHOC', 'SRs last 1 day', 'Customer SRs for the last 1 day');
+INSERT INTO training_bot(tag, pattern, response) VALUES('ADHOC', '3 month dudl', 'DUDL Data for the last 3 months');
+INSERT INTO training_bot(tag, pattern, response) VALUES('ADHOC', '2 month ar', 'Customer ARs for the last 2 months');
+INSERT INTO training_bot(tag, pattern, response) VALUES('ADHOC', 'yesterday sr', 'Customer SRs for the last 1 day');
+
